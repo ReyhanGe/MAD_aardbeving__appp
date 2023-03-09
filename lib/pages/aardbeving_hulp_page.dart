@@ -54,50 +54,62 @@ class _HulpPageState extends State<HulpPage> {
         title: Text('AardbevingNoodsituatie'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            SizedBox(height: 20),
-            Text(
-              'Hulp',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 20),
-            Expanded(
-              child: GridView.builder(
-                itemCount: loadedAardbevings.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 4 / 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 25,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 240, 247, 174),
+              Color.fromARGB(255, 250, 169, 158)
+            ],
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              SizedBox(height: 20),
+              Text(
+                'Hulp',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
-                itemBuilder: (ctx, i) =>
-                    AardbevingItem(aardbeving: loadedAardbevings[i]),
               ),
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: double.infinity,
-              color: Colors.grey,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Advertentie',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+              SizedBox(height: 20),
+              Expanded(
+                child: GridView.builder(
+                  itemCount: loadedAardbevings.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 4 / 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 25,
+                  ),
+                  itemBuilder: (ctx, i) =>
+                      AardbevingItem(aardbeving: loadedAardbevings[i]),
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                width: double.infinity,
+                color: Colors.grey,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Advertentie',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
             ),
             drawer: Drawer(
+              backgroundColor: Color.fromARGB(255, 178, 212, 254),
               child: ListView(
                 children: <Widget>[
                   ListTile(

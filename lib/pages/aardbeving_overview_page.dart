@@ -14,66 +14,78 @@ class FluitjePage extends StatelessWidget {
         title: Text('AardbevingNoodsituatie'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Mijn Fluitje',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 240, 247, 174),
+              Color.fromARGB(255, 250, 169, 158)
+            ],
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+          ),
+        ),
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Mijn Fluitje',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    child: Image.asset(
-                      'flut.jpg',
-                      height: 500,
-                      width: 400,
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      child: Image.asset(
+                        'flut.jpg',
+                        height: 500,
+                        width: 400,
+                      ),
+                      onTap: () async {
+                        AudioCache player = AudioCache();
+                        await player.play('sound_effect.mp3');
+                      },
                     ),
-                    onTap: () async {
-                      AudioCache player = AudioCache();
-                      await player.play('sound_effect.mp3');
-                    },
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'Druk op het fluitje en het zal klinken.',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    width: double.infinity,
-                    color: Colors.grey,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Advertentie',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                    SizedBox(height: 20),
+                    Text(
+                      'Druk op het fluitje en het zal klinken.',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: double.infinity,
+                      color: Colors.grey,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Advertentie',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

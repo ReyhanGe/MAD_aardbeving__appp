@@ -24,14 +24,18 @@ class AardbevingItem extends StatelessWidget {
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => AardbevingDetailPage(aardbeving: aardbeving),
+                builder: (context) =>
+                    AardbevingDetailPage(aardbeving: aardbeving),
               ),
             );
           },
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.red, Colors.green],
+                colors: [
+                  Color.fromARGB(255, 255, 91, 79),
+                  Color.fromARGB(255, 94, 215, 195)
+                ],
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
               ),
